@@ -3,7 +3,7 @@
 var opc1;
 var opc2;
 var operacion;
-
+alert("esta calculadora solo funciona con nuemros de un digito");
 
 function obtener(){
     var mostrarNum = document.getElementById('result');
@@ -63,7 +63,7 @@ function obtener(){
         mostrarNum.textContent = mostrarNum.textContent  + ".";
     }
     reset.onclick = function(e){
-        limpiar();
+        resetear();
     }
     // suma.onclick = function(e){
     //     mostrarNum.textContent = mostrarNum.textContent  + "+";
@@ -80,50 +80,55 @@ function obtener(){
         opc1 = mostrarNum.textContent;
         operacion = "+";
         mostrarNum.textContent = mostrarNum.textContent  + "+";
-        borrar();
+        
+        limpiar();
     }
     
     resta.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "-";
         mostrarNum.textContent = mostrarNum.textContent  + "-";
-        borrar();
+        limpiar();
     }
     multiplicacion.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "*";
         mostrarNum.textContent = mostrarNum.textContent  + "*";
-        borrar();
+        limpiar();
     }
     division.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "/";
         mostrarNum.textContent = mostrarNum.textContent  + "/";
-        borrar();
+        limpiar();
         
     }
     igual.onclick = function(e){
         opc2 = mostrarNum.textContent;
+        str=opc2;
+        opc2=str.slice(opc1.lenght);
+        
+        opc2=str.slice(-1);
         mostrarNum.textContent = mostrarNum.textContent  + "=";
-        alert("esta la opcion 2"+opc2);
+      
         resolver();
     }
 }
 
-function removeElement( opc1 ) {
-	opc1.parentNode.removeChild(opc1);
-}
 
-  function limpiar(){
-    mostrarNum.textContent = " ";
-    
-    opc1 = 0;
-    alert("la opcion 1 fue borrada, nuevo valor="+opc1);
-    opc2 = 0;
-    alert("la opcion 2 fue borrada, nuevo valor="+opc2);
-    operacion = "";
-    alert("la operacion fue borrada, nuevo valor="+operacion);
+function limpiar(){
+    mostrarNum.replace('');
+    alert("asdasd:"+mostrarNum);
   }
+  function resetear(){
+    alert("esta por funcionar la funcion resetear");
+    mostrarNum.textContent = "";
+    alert("valor a mostrar en pantalla es: "+mostrarNum.textContent);
+    opc1 = 0;
+    opc2 = 0;
+    operacion = "";
+  }
+
   function resolver(){
     var res = 0;
     switch(operacion){
@@ -133,14 +138,21 @@ function removeElement( opc1 ) {
         break;
       case "-":
           res = parseFloat(opc1) - parseFloat(opc2);
+          alert(res);
           break;
       case "*":
         res = parseFloat(opc1) * parseFloat(opc2);
+        alert(res);
+        mostrarNum.textContent = mostrarNum.textContent  + res;
+      
         break;
       case "/":
         res = parseFloat(opc1) / parseFloat(opc2);
+        alert(res);
+
         break;
     }
-    limpiar();
+    
         mostrarNum.textContent = res;
   }
+
