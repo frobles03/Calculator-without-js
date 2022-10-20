@@ -63,7 +63,12 @@ function obtener(){
         mostrarNum.textContent = mostrarNum.textContent  + ".";
     }
     reset.onclick = function(e){
-        resetear();
+       
+        mostrarNum.textContent = " ";
+        
+        opc1 = 0;
+        opc2 = 0;
+        operacion = "";
     }
     // suma.onclick = function(e){
     //     mostrarNum.textContent = mostrarNum.textContent  + "+";
@@ -121,14 +126,14 @@ function limpiar(){
     mostrarNum.replace('');
     alert("asdasd:"+mostrarNum);
   }
-  function resetear(){
-    alert("esta por funcionar la funcion resetear");
-    mostrarNum.textContent = "";
-    alert("valor a mostrar en pantalla es: "+mostrarNum.textContent);
-    opc1 = 0;
-    opc2 = 0;
-    operacion = "";
-  }
+//   function resetear(){
+//     alert("esta por funcionar la funcion resetear");
+//     mostrarNum.textContent = " ";
+//     alert("valor a mostrar en pantalla es: "+mostrarNum.textContent);
+//     opc1 = 0;
+//     opc2 = 0;
+//     operacion = "";
+//   }
 
   function resolver(){
     var res = 0;
