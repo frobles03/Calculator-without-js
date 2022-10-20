@@ -3,7 +3,7 @@
 var opc1;
 var opc2;
 var operacion;
-alert("esta calculadora solo funciona con nuemros de un digito");
+alert("esta calculadora solo funciona con una operacion a la vez");
 
 function obtener(){
     var mostrarNum = document.getElementById('result');
@@ -30,34 +30,34 @@ function obtener(){
 
 
     uno.onclick = function(e){
-        mostrarNum.textContent =  "1";
+        mostrarNum.textContent =   mostrarNum.textContent  +"1";
     }
     dos.onclick = function(e){
-        mostrarNum.textContent =  "2";
+        mostrarNum.textContent =    mostrarNum.textContent  + "2";
     }
     tres.onclick = function(e){
-        mostrarNum.textContent = "3";
+        mostrarNum.textContent = mostrarNum.textContent  +"3";
     }
     cuatro.onclick = function(e){
-        mostrarNum.textContent = "4";
+        mostrarNum.textContent =mostrarNum.textContent  + "4";
     }
     cinco.onclick = function(e){
-        mostrarNum.textContent =  "5";
+        mostrarNum.textContent = mostrarNum.textContent  + "5";
     }
     seis.onclick = function(e){
-        mostrarNum.textContent =  "6";
+        mostrarNum.textContent = mostrarNum.textContent  + "6";
     }
     siete.onclick = function(e){
-        mostrarNum.textContent = "7";
+        mostrarNum.textContent = mostrarNum.textContent  +"7";
     }
     ocho.onclick = function(e){
-        mostrarNum.textContent =  "8";
+        mostrarNum.textContent =mostrarNum.textContent  +  "8";
     }
     nueve.onclick = function(e){
-        mostrarNum.textContent =  "9";
+        mostrarNum.textContent = mostrarNum.textContent  + "9";
     }
     cero.onclick = function(e){
-        mostrarNum.textContent =  "0";
+        mostrarNum.textContent = mostrarNum.textContent  + "0";
     }
     punto.onclick = function(e){
         mostrarNum.textContent = mostrarNum.textContent  + ".";
@@ -70,50 +70,42 @@ function obtener(){
         opc2 = 0;
         operacion = "";
     }
-    // suma.onclick = function(e){
-    //     mostrarNum.textContent = mostrarNum.textContent  + "+";
-    // }
-    // resta.onclick = function(e){
-    //     mostrarNum.textContent = mostrarNum.textContent  + "-";
-    // }
-
-    // reset.onclick = function(e){
-    //     limpiar();
-    // }
+    
     
     suma.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "+";
         mostrarOperacion.textContent = "+";
+        mostrarNum.textContent="";
         
-        limpiar();
+   
     }
     
     resta.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "-";
         mostrarOperacion.textContent =  "-";
-        limpiar();
+        mostrarNum.textContent="";
+        
     }
     multiplicacion.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "*";
         mostrarOperacion.textContent =  "*";
-        limpiar();
+        mostrarNum.textContent="";
+      
     }
     division.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "/";
         mostrarOperacion.textContent =  "/";
-        limpiar();
+        mostrarNum.textContent="";
+      
         
     }
     igual.onclick = function(e){
         opc2 = mostrarNum.textContent;
-        str=opc2;
-        opc2=str.slice(opc1.lenght);
-        
-        opc2=str.slice(-1);
+    
         mostrarNum.textContent =opc1+operacion+ mostrarNum.textContent  + "=";
         
       
@@ -122,18 +114,7 @@ function obtener(){
 }
 
 
-function limpiar(){
-    mostrarNum.replace('');
-    alert("asdasd:"+mostrarNum);
-  }
-//   function resetear(){
-//     alert("esta por funcionar la funcion resetear");
-//     mostrarNum.textContent = " ";
-//     alert("valor a mostrar en pantalla es: "+mostrarNum.textContent);
-//     opc1 = 0;
-//     opc2 = 0;
-//     operacion = "";
-//   }
+
 
   function resolver(){
     var res = 0;
@@ -155,6 +136,7 @@ function limpiar(){
       case "/":
         res = parseFloat(opc1) / parseFloat(opc2);
         alert("resultado: "+res);
+        mostrarOperacion.textContent =res;
       
         break;
     }
