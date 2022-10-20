@@ -30,34 +30,34 @@ function obtener(){
 
 
     uno.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "1";
+        mostrarNum.textContent =  "1";
     }
     dos.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "2";
+        mostrarNum.textContent =  "2";
     }
     tres.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "3";
+        mostrarNum.textContent = "3";
     }
     cuatro.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "4";
+        mostrarNum.textContent = "4";
     }
     cinco.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "5";
+        mostrarNum.textContent =  "5";
     }
     seis.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "6";
+        mostrarNum.textContent =  "6";
     }
     siete.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "7";
+        mostrarNum.textContent = "7";
     }
     ocho.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "8";
+        mostrarNum.textContent =  "8";
     }
     nueve.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "9";
+        mostrarNum.textContent =  "9";
     }
     cero.onclick = function(e){
-        mostrarNum.textContent = mostrarNum.textContent  + "0";
+        mostrarNum.textContent =  "0";
     }
     punto.onclick = function(e){
         mostrarNum.textContent = mostrarNum.textContent  + ".";
@@ -79,7 +79,7 @@ function obtener(){
     suma.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "+";
-        mostrarNum.textContent = mostrarNum.textContent  + "+";
+        mostrarOperacion.textContent = "+";
         
         limpiar();
     }
@@ -87,19 +87,19 @@ function obtener(){
     resta.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "-";
-        mostrarNum.textContent = mostrarNum.textContent  + "-";
+        mostrarOperacion.textContent =  "-";
         limpiar();
     }
     multiplicacion.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "*";
-        mostrarNum.textContent = mostrarNum.textContent  + "*";
+        mostrarOperacion.textContent =  "*";
         limpiar();
     }
     division.onclick = function(e){
         opc1 = mostrarNum.textContent;
         operacion = "/";
-        mostrarNum.textContent = mostrarNum.textContent  + "/";
+        mostrarOperacion.textContent =  "/";
         limpiar();
         
     }
@@ -109,7 +109,8 @@ function obtener(){
         opc2=str.slice(opc1.lenght);
         
         opc2=str.slice(-1);
-        mostrarNum.textContent = mostrarNum.textContent  + "=";
+        mostrarNum.textContent =opc1+operacion+ mostrarNum.textContent  + "=";
+        
       
         resolver();
     }
@@ -134,25 +135,25 @@ function limpiar(){
     switch(operacion){
       case "+":
         res = parseFloat(opc1) + parseFloat(opc2);
-        alert(res);
+        alert("resultado: "+res);
         break;
       case "-":
           res = parseFloat(opc1) - parseFloat(opc2);
-          alert(res);
+          alert("resultado: "+res);
           break;
       case "*":
         res = parseFloat(opc1) * parseFloat(opc2);
-        alert(res);
-        mostrarNum.textContent = mostrarNum.textContent  + res;
+       
+        alert("resultado: "+res);
       
         break;
       case "/":
         res = parseFloat(opc1) / parseFloat(opc2);
-        alert(res);
-
+        alert("resultado: "+res);
+      
         break;
     }
     
-        mostrarNum.textContent = res;
+       
   }
 
