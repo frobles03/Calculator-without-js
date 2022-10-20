@@ -122,16 +122,18 @@ function obtener(){
       case "+":
         res = parseFloat(opc1) + parseFloat(opc2);
         mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
+        mostrarOperacionF.textContent="";
         break;
       case "-":
           res = parseFloat(opc1) - parseFloat(opc2);
           mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
+          mostrarOperacionF.textContent="";
           break;
       case "*":
         res = parseFloat(opc1) * parseFloat(opc2);
        
         mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
-      
+        mostrarOperacionF.textContent="";
         break;
       case "/":
         res = parseFloat(opc1) / parseFloat(opc2);
