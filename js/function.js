@@ -1,12 +1,13 @@
-alert("hola, soy una alerta: No te alertes");
+
 
 var opc1;
 var opc2;
-var opc3;
+var operacion;
 
 
 function obtener(){
-    var resultado = document.getElementById('result');
+    var mostrarNum = document.getElementById('result');
+    var mostrarOperacion = document.getElementById('current-function');
     var reset = document.getElementById('button-c');
     var suma = document.getElementById('button-add');
     var resta = document.getElementById('button-subtract');
@@ -29,60 +30,117 @@ function obtener(){
 
 
     uno.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "1";
+        mostrarNum.textContent = mostrarNum.textContent  + "1";
     }
     dos.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "2";
+        mostrarNum.textContent = mostrarNum.textContent  + "2";
     }
     tres.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "3";
+        mostrarNum.textContent = mostrarNum.textContent  + "3";
     }
     cuatro.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "4";
+        mostrarNum.textContent = mostrarNum.textContent  + "4";
     }
     cinco.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "5";
+        mostrarNum.textContent = mostrarNum.textContent  + "5";
     }
     seis.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "6";
+        mostrarNum.textContent = mostrarNum.textContent  + "6";
     }
     siete.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "7";
+        mostrarNum.textContent = mostrarNum.textContent  + "7";
     }
     ocho.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "8";
+        mostrarNum.textContent = mostrarNum.textContent  + "8";
     }
     nueve.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "9";
+        mostrarNum.textContent = mostrarNum.textContent  + "9";
     }
     cero.onclick = function(e){
-        resultado.textContent = resultado.textContent  + "0";
+        mostrarNum.textContent = mostrarNum.textContent  + "0";
+    }
+    punto.onclick = function(e){
+        mostrarNum.textContent = mostrarNum.textContent  + ".";
     }
     reset.onclick = function(e){
-        resetear();
+        limpiar();
     }
+    // suma.onclick = function(e){
+    //     mostrarNum.textContent = mostrarNum.textContent  + "+";
+    // }
+    // resta.onclick = function(e){
+    //     mostrarNum.textContent = mostrarNum.textContent  + "-";
+    // }
+
+    // reset.onclick = function(e){
+    //     limpiar();
+    // }
+    
     suma.onclick = function(e){
-        operandoa = resultado.textContent;
+        opc1 = mostrarNum.textContent;
         operacion = "+";
-        limpiar();
+        mostrarNum.textContent = mostrarNum.textContent  + "+";
+        borrar();
     }
+    
     resta.onclick = function(e){
-        operandoa = resultado.textContent;
+        opc1 = mostrarNum.textContent;
         operacion = "-";
-        limpiar();
+        mostrarNum.textContent = mostrarNum.textContent  + "-";
+        borrar();
     }
     multiplicacion.onclick = function(e){
-        operandoa = resultado.textContent;
+        opc1 = mostrarNum.textContent;
         operacion = "*";
-        limpiar();
+        mostrarNum.textContent = mostrarNum.textContent  + "*";
+        borrar();
     }
     division.onclick = function(e){
-        operandoa = resultado.textContent;
+        opc1 = mostrarNum.textContent;
         operacion = "/";
-        limpiar();
+        mostrarNum.textContent = mostrarNum.textContent  + "/";
+        borrar();
+        
     }
     igual.onclick = function(e){
-        operandob = resultado.textContent;
+        opc2 = mostrarNum.textContent;
+        mostrarNum.textContent = mostrarNum.textContent  + "=";
+        alert("esta la opcion 2"+opc2);
         resolver();
     }
 }
+
+function removeElement( opc1 ) {
+	opc1.parentNode.removeChild(opc1);
+}
+
+  function limpiar(){
+    mostrarNum.textContent = " ";
+    
+    opc1 = 0;
+    alert("la opcion 1 fue borrada, nuevo valor="+opc1);
+    opc2 = 0;
+    alert("la opcion 2 fue borrada, nuevo valor="+opc2);
+    operacion = "";
+    alert("la operacion fue borrada, nuevo valor="+operacion);
+  }
+  function resolver(){
+    var res = 0;
+    switch(operacion){
+      case "+":
+        res = parseFloat(opc1) + parseFloat(opc2);
+        alert(res);
+        break;
+      case "-":
+          res = parseFloat(opc1) - parseFloat(opc2);
+          break;
+      case "*":
+        res = parseFloat(opc1) * parseFloat(opc2);
+        break;
+      case "/":
+        res = parseFloat(opc1) / parseFloat(opc2);
+        break;
+    }
+    limpiar();
+        mostrarNum.textContent = res;
+  }
