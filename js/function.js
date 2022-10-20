@@ -4,7 +4,8 @@ var opc1;
 var opc2;
 var operacion;
 alert("esta calculadora solo funciona con una operacion a la vez");
-
+var mostrarOperacionF = document.getElementById('current-function');
+var mostrarNumF= document.getElementById('result');
 function obtener(){
     var mostrarNum = document.getElementById('result');
     var mostrarOperacion = document.getElementById('current-function');
@@ -108,7 +109,6 @@ function obtener(){
     
         mostrarNum.textContent =opc1+operacion+ mostrarNum.textContent  + "=";
         
-      
         resolver();
     }
 }
@@ -121,24 +121,21 @@ function obtener(){
     switch(operacion){
       case "+":
         res = parseFloat(opc1) + parseFloat(opc2);
-        alert("resultado: "+res);
-        break;
+        mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
       case "-":
           res = parseFloat(opc1) - parseFloat(opc2);
-          alert("resultado: "+res);
+          mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
           break;
       case "*":
         res = parseFloat(opc1) * parseFloat(opc2);
        
-        alert("resultado: "+res);
+        mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
       
         break;
       case "/":
         res = parseFloat(opc1) / parseFloat(opc2);
-        alert("resultado: "+res);
-        mostrarOperacion.textContent =res;
-      
-        break;
+        mostrarNumF.textContent=opc1+operacion+ opc2  + "="+res;
+         break;
     }
     
        
